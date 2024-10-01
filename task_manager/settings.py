@@ -126,8 +126,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "task_manager/static/",
 ]
+
+STATIC_ROOT = BASE_DIR / "var/static/"
 
 
 # Default primary key field type
