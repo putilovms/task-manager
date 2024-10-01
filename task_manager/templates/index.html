@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}Менеджер задач{% endblock %}
 
 {% block content %}
@@ -17,9 +19,9 @@
                 <a class="btn btn-outline-secondary btn-lg px-4" href="#link" role="button">Пользователи</a>
             </div>
         </div>
-        <div class="overflow-hidden" style="max-height: 30vh;">
-            <div class="container px-5 col-lg-6 border-bottom">
-                <img src="bootstrap-docs.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
+        <div class="overflow-hidden border-bottom" style="max-height: 30vh;">
+            <div class="container px-5">
+                <img src="{% static 'product.png' %}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
                     width="700" height="500" loading="lazy">
             </div>
         </div>
