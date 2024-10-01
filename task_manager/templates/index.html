@@ -1,28 +1,29 @@
 {% extends "base.html" %}
 
+{% load i18n %}
 {% load static %}
 
-{% block title %}Менеджер задач{% endblock %}
+{% block title %}{% trans "Task Manager" %}{% endblock %}
 
 {% block content %}
 <div class="content">
     <div class="px-4 pt-5 my-5 text-center ">
-        <h1 class="display-4 fw-bold">Менеджер задач</h1>
+        <h1 class="display-4 fw-bold">{% trans "Task Manager" %}</h1>
         <div class="col-lg-8 mx-auto">
-            <p class="lead mb-4">Менеджер задач – это система управления задачами. Она позволяет ставить задачи,
-                назначать
-                исполнителей и менять их статусы. В проекте так же реализована регистрация и аутентификация
-                пользователей.
+            <p class="lead mb-4">
+                {% trans "A Task Manager is a task management system." %}
+                {% trans "It allows you to set tasks, assign performers and change their statuses." %} 
+                {% trans "The project also implements user registration and authentication." %}
             </p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#link" role="button">Начать</a>
-                <a class="btn btn-outline-secondary btn-lg px-4" href="#link" role="button">Пользователи</a>
+                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#link" role="button">{% trans "Get Started" %}</a>
+                <a class="btn btn-outline-secondary btn-lg px-4" href="#link" role="button">{% trans "Users" %}</a>
             </div>
         </div>
         <div class="overflow-hidden border-bottom" style="max-height: 30vh;">
             <div class="container px-5">
-                <img src="{% static 'product.png' %}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
-                    width="700" height="500" loading="lazy">
+                <img src="{% static 'product.png' %}" class="img-fluid border rounded-3 shadow-lg mb-4"
+                    alt="Example image" width="700" height="500" loading="lazy">
             </div>
         </div>
     </div>

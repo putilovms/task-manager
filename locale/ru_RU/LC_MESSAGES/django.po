@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-01 22:01+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: task_manager/templates/base.html:7 task_manager/templates/base.html:23
+#: task_manager/templates/index.html:6 task_manager/templates/index.html:11
+msgid "Task Manager"
+msgstr "Менеджер задач"
+
+#: task_manager/templates/base.html:34 task_manager/templates/base.html:54
+#: task_manager/templates/index.html:20
+msgid "Users"
+msgstr "Пользователи"
+
+#: task_manager/templates/base.html:37 task_manager/templates/base.html:55
+msgid "Log in"
+msgstr "Вход"
+
+#: task_manager/templates/base.html:40 task_manager/templates/base.html:56
+msgid "Sign up"
+msgstr "Регистрация"
+
+#: task_manager/templates/base.html:58
+msgid "© 2024 Mikhail Putilov"
+msgstr "© 2024 Михаил Путилов"
+
+#: task_manager/templates/index.html:14
+msgid "A Task Manager is a task management system."
+msgstr "Менеджер Задач – это система управления задачами."
+
+#: task_manager/templates/index.html:15
+msgid ""
+"It allows you to set tasks, assign performers and change their statuses."
+msgstr "Она позволяет ставить задачи, назначать исполнителей и менять их статусы."
+
+#: task_manager/templates/index.html:16
+msgid "The project also implements user registration and authentication."
+msgstr "В проекте также реализована регистрация и аутентификация пользователей."
+
+#: task_manager/templates/index.html:19
+msgid "Get Started"
+msgstr "Начать"
