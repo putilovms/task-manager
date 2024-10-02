@@ -16,4 +16,10 @@ setup:
 	poetry run python manage.py collectstatic --no-input
 	poetry run python manage.py migrate
 
-.PHONY: install dev lint start setup
+makemessages:
+	poetry run django-admin makemessages --ignore="static" --ignore=".env"  -l ru_RU
+
+compilemessages:
+	poetry run django-admin compilemessages
+
+.PHONY: install dev lint start setup makemessages compilemessages

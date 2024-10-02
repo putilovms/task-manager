@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 22:01+0400\n"
+"POT-Creation-Date: 2024-10-02 22:05+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,20 +22,32 @@ msgstr ""
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/base.html:34 task_manager/templates/base.html:54
+#: task_manager/templates/base.html:34 task_manager/templates/base.html:62
 #: task_manager/templates/index.html:20
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/base.html:37 task_manager/templates/base.html:55
+#: task_manager/templates/base.html:37 task_manager/templates/base.html:63
 msgid "Log in"
 msgstr "Вход"
 
-#: task_manager/templates/base.html:40 task_manager/templates/base.html:56
+#: task_manager/templates/base.html:40 task_manager/templates/base.html:64
 msgid "Sign up"
 msgstr "Регистрация"
 
-#: task_manager/templates/base.html:58
+#: task_manager/templates/base.html:44
+msgid "Language"
+msgstr "Язык"
+
+#: task_manager/templates/base.html:46
+msgid "Russian"
+msgstr "Русский"
+
+#: task_manager/templates/base.html:47
+msgid "English"
+msgstr "Английский"
+
+#: task_manager/templates/base.html:66
 msgid "© 2024 Mikhail Putilov"
 msgstr "© 2024 Михаил Путилов"
 
@@ -46,11 +58,13 @@ msgstr "Менеджер Задач – это система управлени
 #: task_manager/templates/index.html:15
 msgid ""
 "It allows you to set tasks, assign performers and change their statuses."
-msgstr "Она позволяет ставить задачи, назначать исполнителей и менять их статусы."
+msgstr ""
+"Она позволяет ставить задачи, назначать исполнителей и менять их статусы."
 
 #: task_manager/templates/index.html:16
 msgid "The project also implements user registration and authentication."
-msgstr "В проекте также реализована регистрация и аутентификация пользователей."
+msgstr ""
+"В проекте также реализована регистрация и аутентификация пользователей."
 
 #: task_manager/templates/index.html:19
 msgid "Get Started"
