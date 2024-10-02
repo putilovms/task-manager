@@ -154,3 +154,40 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://django-bootstrap5.readthedocs.io/en/latest/settings.html
 
 BOOTSTRAP5 = {}
+
+# Logger settings
+
+LOG_FILENAME = BASE_DIR / "task_manager.log"
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "default": {
+            "format": "%(asctime)s %(name)s %(levelname)s %(message)s",
+            "datefmt": '%H:%M',
+        },
+    },
+    "handlers": {
+        "logfile": {
+            "formatter": "default",
+            "level": "DEBUG",
+            "filename": LOG_FILENAME,
+            "class": "logging.FileHandler",
+            "mode": "w",
+        },
+        "stdout": {
+            "formatter": "default",
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+        }
+    },
+    "loggers": {},
+    "root": {
+        "level": os.getenv("LOG_LEVEL", "WARNING"),
+        "handlers": [
+            "logfile",
+            "stdout"
+        ],
+    },
+}
