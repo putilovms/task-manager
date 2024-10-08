@@ -11,15 +11,18 @@ start:
 lint:
 	poetry run flake8 task_manager
 
+makemigrations:
+	poetry run python manage.py makemigrations
+
 setup:
 	poetry install
 	poetry run python manage.py collectstatic --no-input
 	poetry run python manage.py migrate
 
 makemessages:
-	poetry run django-admin makemessages --ignore="static" --ignore=".env"  -l ru_RU
+	poetry run django-admin makemessages --ignore="static" --ignore=".env" -l ru_RU
 
 compilemessages:
 	poetry run django-admin compilemessages
 
-.PHONY: install dev lint start setup makemessages compilemessages
+.PHONY: install dev lint start setup makemessages compilemessages makemigrations

@@ -16,8 +16,10 @@
                 {% trans "The project also implements user registration and authentication." %}
             </p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#link" role="button">{% trans "Get Started" %}</a>
-                <a class="btn btn-outline-secondary btn-lg px-4" href="#link" role="button">{% trans "Users" %}</a>
+                <a class="btn btn-primary btn-lg px-4 me-sm-3
+                {% if user.is_authenticated %}disabled{% endif %}
+                " href="{% url 'registration' %}" role="button">{% trans "Get Started" %}</a>
+                <a class="btn btn-outline-secondary btn-lg px-4" href="{% url 'users' %}" role="button">{% trans "Users" %}</a>
             </div>
         </div>
         <div class="overflow-hidden border-bottom" style="max-height: 30vh;">

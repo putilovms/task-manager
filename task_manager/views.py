@@ -2,6 +2,9 @@ from django.views import View
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.utils import translation
+from django.contrib import messages
+from django.contrib.auth.signals import user_logged_in, user_logged_out
+from django.utils.translation import gettext as _
 import logging
 
 log = logging.getLogger(__name__)
@@ -23,3 +26,17 @@ class SetLang(View):
         translation.activate(lang)
         log.debug(f'Язык переключён на - {lang}')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+
+def login_message(sender, user, request, **kwargs):
+    text_message = _("You have successfully logged in to the site")
+    messages.info(request, text_message)
+
+
+def logout_message(sender, user, request, **kwargs):
+    text_message = _("You have successfully logged out of your account")
+    messages.info(request, text_message)
+
+
+user_logged_in.connect(login_message)
+user_logged_out.connect(logout_message)
