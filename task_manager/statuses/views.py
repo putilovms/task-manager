@@ -4,7 +4,7 @@ from task_manager.statuses.models import Statuses
 from django.contrib.auth.mixins import AccessMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from django.views.generic.edit import DeleteView, CreateView, UpdateView
 from .forms import StatusesForm
@@ -33,11 +33,20 @@ class StatusCreateView(LoginRequiredMsgMixin, SuccessMessageMixin, CreateView):
     success_message = _("The status has been successfully created")
 
 
-class StatusUpdateView(LoginRequiredMsgMixin, UpdateView):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse('Status update')
+class StatusUpdateView(LoginRequiredMsgMixin, SuccessMessageMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    context_object_name = 'status'
+    model = Statuses
+    form_class = StatusesForm
+    template_name = 'statuses/status_update.html'
+    success_url = reverse_lazy('statuses')
+    success_message = _("The status has been successfully changed")
 
 
-class StatusDeleteView(LoginRequiredMsgMixin, DeleteView):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse('Status delete')
+class StatusDeleteView(LoginRequiredMsgMixin, SuccessMessageMixin, DeleteView):
+    login_url = reverse_lazy('login')
+    context_object_name = 'status'
+    model = Statuses
+    template_name = 'statuses/status_delete.html'
+    success_url = reverse_lazy('statuses')
+    success_message = _("The status has been successfully deleted")
