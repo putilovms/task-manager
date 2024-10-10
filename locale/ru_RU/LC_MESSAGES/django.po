@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-10 22:52+0400\n"
+"POT-Creation-Date: 2024-10-10 23:24+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,10 @@ msgstr ""
 #: task_manager/statuses/templates/statuses/statuses.html:18
 msgid "Name"
 msgstr "Имя"
+
+#: task_manager/statuses/models.py:9
+msgid "Task status"
+msgstr "Статус задачи"
 
 #: task_manager/statuses/templates/statuses/status_create.html:6
 #: task_manager/statuses/templates/statuses/status_create.html:10
@@ -88,19 +92,19 @@ msgstr "Дата создания"
 msgid "Delete"
 msgstr "Удалить"
 
-#: task_manager/statuses/views.py:16
+#: task_manager/statuses/views.py:15
 msgid "You are not logged in! Please log in"
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход"
 
-#: task_manager/statuses/views.py:33
+#: task_manager/statuses/views.py:32
 msgid "The status has been successfully created"
 msgstr "Статус успешно создан"
 
-#: task_manager/statuses/views.py:43
+#: task_manager/statuses/views.py:42
 msgid "The status has been successfully changed"
 msgstr "Статус успешно изменен"
 
-#: task_manager/statuses/views.py:52
+#: task_manager/statuses/views.py:51
 msgid "The status has been successfully deleted"
 msgstr "Статус успешно удален"
 
