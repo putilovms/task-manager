@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.views import View
-from django.shortcuts import render
 from django.views.generic.list import ListView
 from task_manager.statuses.models import Statuses
 
