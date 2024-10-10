@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.views.generic.list import ListView
 from task_manager.statuses.models import Statuses
 from django.contrib.auth.mixins import AccessMixin
