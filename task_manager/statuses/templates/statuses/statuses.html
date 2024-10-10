@@ -25,7 +25,7 @@
             <tr class="align-middle">
                 <th scope="row">{{ status.id }}</th>
                 <td>{{ status.name }}</td>
-                <td>{{ user.created_at }}</td>
+                <td>{{ status.created_at }}</td>
                 <td>
                     <a href="{% url 'status_update' status.id %}">{% trans "Edit" %}</a>
                     <br>
