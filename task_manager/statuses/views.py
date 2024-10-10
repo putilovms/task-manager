@@ -8,7 +8,8 @@ from django.shortcuts import render
 
 class StatusesListView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, template_name='statuses/statuses.html', context={})
+        template_name = 'statuses/statuses.html'
+        return render(request, template_name=template_name, context={})
 
 
 class StatusCreateView(View):
