@@ -1,12 +1,14 @@
 from django.http import HttpResponse
 from django.views import View
+from django.shortcuts import render
+
 
 # Create your views here.
 
 
 class StatusesListView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse('Statuses')
+        return render(request, template_name='statuses/statuses.html', context={})
 
 
 class StatusCreateView(View):
