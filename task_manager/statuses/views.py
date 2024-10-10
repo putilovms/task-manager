@@ -3,9 +3,6 @@ from django.views import View
 from django.shortcuts import render
 
 
-# Create your views here.
-
-
 class StatusesListView(View):
     def get(self, request, *args, **kwargs):
         template_name = 'statuses/statuses.html'
