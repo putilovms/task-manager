@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-10 15:08+0400\n"
+"POT-Creation-Date: 2024-10-10 18:18+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +25,35 @@ msgstr "Список статусов"
 #: task_manager/templates/base.html:48
 msgid "Statuses"
 msgstr "Статусы"
+
+#: task_manager/statuses/templates/statuses/statuses.html:11
+msgid "Create a status"
+msgstr "Создать статус"
+
+#: task_manager/statuses/templates/statuses/statuses.html:17
+#: task_manager/users/templates/users/users_list.html:15
+msgid "ID"
+msgstr ""
+
+#: task_manager/statuses/templates/statuses/statuses.html:18
+msgid "Name"
+msgstr "Имя"
+
+#: task_manager/statuses/templates/statuses/statuses.html:19
+#: task_manager/users/templates/users/users_list.html:18
+msgid "Date of creation"
+msgstr "Дата создания"
+
+#: task_manager/statuses/templates/statuses/statuses.html:30
+#: task_manager/users/templates/users/update.html:15
+#: task_manager/users/templates/users/users_list.html:30
+msgid "Edit"
+msgstr "Изменить"
+
+#: task_manager/statuses/templates/statuses/statuses.html:32
+#: task_manager/users/templates/users/users_list.html:32
+msgid "Delete"
+msgstr "Удалить"
 
 #: task_manager/templates/base.html:7 task_manager/templates/base.html:23
 #: task_manager/templates/index.html:6 task_manager/templates/index.html:11
@@ -128,18 +157,9 @@ msgstr "Зарегистрировать"
 msgid "User update"
 msgstr "Изменение пользователя"
 
-#: task_manager/users/templates/users/update.html:15
-#: task_manager/users/templates/users/users_list.html:30
-msgid "Edit"
-msgstr "Изменить"
-
 #: task_manager/users/templates/users/users_list.html:5
 msgid "List of users"
 msgstr "Список пользователей"
-
-#: task_manager/users/templates/users/users_list.html:15
-msgid "ID"
-msgstr ""
 
 #: task_manager/users/templates/users/users_list.html:16
 msgid "User name"
@@ -148,14 +168,6 @@ msgstr "Имя пользователя"
 #: task_manager/users/templates/users/users_list.html:17
 msgid "Full name"
 msgstr "Полное имя"
-
-#: task_manager/users/templates/users/users_list.html:18
-msgid "Date of creation"
-msgstr "Дата создания"
-
-#: task_manager/users/templates/users/users_list.html:32
-msgid "Delete"
-msgstr "Удалить"
 
 #: task_manager/users/views.py:19
 msgid "You don't have the rights to change another user"

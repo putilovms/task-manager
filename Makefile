@@ -36,3 +36,7 @@ makemessages:
 .PHONY: compilemessages
 compilemessages:
 	poetry run django-admin compilemessages
+
+.PHONY: shell
+shell:
+	poetry run python manage.py shell
