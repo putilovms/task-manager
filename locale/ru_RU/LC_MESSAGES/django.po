@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-10 18:18+0400\n"
+"POT-Creation-Date: 2024-10-10 18:52+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,6 +54,10 @@ msgstr "Изменить"
 #: task_manager/users/templates/users/users_list.html:32
 msgid "Delete"
 msgstr "Удалить"
+
+#: task_manager/statuses/views.py:14
+msgid "You are not logged in! Please log in"
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход"
 
 #: task_manager/templates/base.html:7 task_manager/templates/base.html:23
 #: task_manager/templates/index.html:6 task_manager/templates/index.html:11
