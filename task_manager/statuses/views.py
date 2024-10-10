@@ -7,3 +7,18 @@ from django.views import View
 class StatusesListView(View):
     def get(self, request, *args, **kwargs):
         return HttpResponse('Statuses')
+
+
+class StatusCreateView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('Status create')
+
+
+class StatusUpdateView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('Status update')
+
+
+class StatusDeleteView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('Status delete')
