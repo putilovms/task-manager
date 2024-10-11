@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-10 23:24+0400\n"
+"POT-Creation-Date: 2024-10-11 18:37+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,11 @@ msgstr ""
 
 #: task_manager/statuses/forms.py:11
 #: task_manager/statuses/templates/statuses/statuses.html:18
+#: task_manager/tasks/templates/tasks/tasks_list.html:16
 msgid "Name"
 msgstr "Имя"
 
-#: task_manager/statuses/models.py:9
+#: task_manager/statuses/models.py:13
 msgid "Task status"
 msgstr "Статус задачи"
 
@@ -63,6 +64,7 @@ msgstr "Изменение статуса"
 
 #: task_manager/statuses/templates/statuses/status_update.html:15
 #: task_manager/statuses/templates/statuses/statuses.html:30
+#: task_manager/tasks/templates/tasks/tasks_list.html:34
 #: task_manager/users/templates/users/update.html:15
 #: task_manager/users/templates/users/users_list.html:30
 msgid "Edit"
@@ -78,35 +80,59 @@ msgid "Statuses"
 msgstr "Статусы"
 
 #: task_manager/statuses/templates/statuses/statuses.html:17
+#: task_manager/tasks/templates/tasks/tasks_list.html:15
 #: task_manager/users/templates/users/users_list.html:15
 msgid "ID"
 msgstr ""
 
 #: task_manager/statuses/templates/statuses/statuses.html:19
+#: task_manager/tasks/templates/tasks/tasks_list.html:20
 #: task_manager/users/templates/users/users_list.html:18
 msgid "Date of creation"
 msgstr "Дата создания"
 
 #: task_manager/statuses/templates/statuses/statuses.html:32
+#: task_manager/tasks/templates/tasks/tasks_list.html:36
 #: task_manager/users/templates/users/users_list.html:32
 msgid "Delete"
 msgstr "Удалить"
 
-#: task_manager/statuses/views.py:15
+#: task_manager/statuses/views.py:17 task_manager/tasks/views.py:15
 msgid "You are not logged in! Please log in"
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход"
 
-#: task_manager/statuses/views.py:32
+#: task_manager/statuses/views.py:34
 msgid "The status has been successfully created"
 msgstr "Статус успешно создан"
 
-#: task_manager/statuses/views.py:42
+#: task_manager/statuses/views.py:44
 msgid "The status has been successfully changed"
 msgstr "Статус успешно изменен"
 
-#: task_manager/statuses/views.py:51
+#: task_manager/statuses/views.py:53
 msgid "The status has been successfully deleted"
 msgstr "Статус успешно удален"
+
+#: task_manager/tasks/models.py:21
+msgid "Task"
+msgstr "Задача"
+
+#: task_manager/tasks/templates/tasks/tasks_list.html:5
+#: task_manager/tasks/templates/tasks/tasks_list.html:9
+msgid "Task List"
+msgstr "Список задач"
+
+#: task_manager/tasks/templates/tasks/tasks_list.html:17
+msgid "Status"
+msgstr "Статус"
+
+#: task_manager/tasks/templates/tasks/tasks_list.html:18
+msgid "Author"
+msgstr "Автор"
+
+#: task_manager/tasks/templates/tasks/tasks_list.html:19
+msgid "Executor"
+msgstr "Исполнитель"
 
 #: task_manager/templates/base.html:7 task_manager/templates/base.html:23
 #: task_manager/templates/index.html:6 task_manager/templates/index.html:11
@@ -134,24 +160,24 @@ msgstr "Пользователи"
 msgid "Tags"
 msgstr "Метки"
 
-#: task_manager/templates/base.html:54
+#: task_manager/templates/base.html:55
 msgid "Tasks"
 msgstr "Задачи"
 
-#: task_manager/templates/base.html:59
+#: task_manager/templates/base.html:60
 msgid "Logout"
 msgstr "Выход"
 
-#: task_manager/templates/base.html:65
+#: task_manager/templates/base.html:66
 #: task_manager/templates/registration/login.html:10
 msgid "Log in"
 msgstr "Вход"
 
-#: task_manager/templates/base.html:69
+#: task_manager/templates/base.html:70
 msgid "Sign up"
 msgstr "Регистрация"
 
-#: task_manager/templates/base.html:89
+#: task_manager/templates/base.html:90
 msgid "© 2024 Mikhail Putilov"
 msgstr "© 2024 Михаил Путилов"
 
