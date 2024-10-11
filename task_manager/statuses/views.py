@@ -10,6 +10,8 @@ from .forms import StatusesForm
 
 
 class LoginRequiredMsgMixin(AccessMixin):
+    redirect_field_name = None
+
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             text_message = _("You are not logged in! Please log in")
