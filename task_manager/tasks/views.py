@@ -6,6 +6,7 @@ from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from task_manager.tasks.models import Tasks
+from django.views.generic.detail import DetailView
 
 
 class LoginRequiredMsgMixin(AccessMixin):
@@ -25,7 +26,7 @@ class TasksListView(LoginRequiredMsgMixin, ListView):
     template_name = 'tasks/tasks_list.html'
 
 
-class TasksCreateView(View):
+class TasksCreateView(LoginRequiredMsgMixin, DetailView):
     def get(self, request, *args, **kwargs):
         return HttpResponse('Task create')
 
@@ -40,6 +41,8 @@ class TasksUpdateView(View):
         return HttpResponse('Task update')
 
 
-class TaskView(View):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse('Task view')
+class TaskView(LoginRequiredMsgMixin, DetailView):
+    login_url = reverse_lazy('login')
+    model = Tasks
+    template_name = 'tasks/task.html'
+    context_object_name = 'task'

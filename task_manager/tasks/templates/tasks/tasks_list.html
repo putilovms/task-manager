@@ -25,10 +25,12 @@
             {% for task in object_list|dictsort:"id" %}
             <tr class="align-middle">
                 <th scope="row">{{ task.id }}</th>
-                <td>{{ task.name }}</td>
+                <td>
+                    <a href="{% url 'task' task.id %}">{{ task.name }}</a>
+                </td>
                 <td>{{ task.status }}</td>
-                <td>{{ task.author }}</td>
-                <td>{{ task.executor }}</td>
+                <td>{{ task.author.get_full_name }}</td>
+                <td>{{ task.executor.get_full_name }}</td>
                 <td>{{ task.created_at }}</td>
                 <td>
                     <a href="{% url 'task_update' task.id %}">{% trans "Edit" %}</a>
