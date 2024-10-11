@@ -3,7 +3,11 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Statuses(models.Model):
-    name = models.CharField(max_length=30, unique=True)
+    name = models.CharField(
+        max_length=30,
+        unique=True,
+        verbose_name=_('Name'),
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
