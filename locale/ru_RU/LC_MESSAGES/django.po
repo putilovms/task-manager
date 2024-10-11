@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 22:37+0400\n"
+"POT-Creation-Date: 2024-10-11 22:58+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,16 +45,19 @@ msgid "Status delete"
 msgstr "Удаление статуса"
 
 #: task_manager/statuses/templates/statuses/status_delete.html:12
+#: task_manager/tasks/templates/tasks/task_delete.html:12
 #: task_manager/users/templates/users/delete.html:12
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
 #: task_manager/statuses/templates/statuses/status_delete.html:16
+#: task_manager/tasks/templates/tasks/task_delete.html:16
 #: task_manager/users/templates/users/delete.html:16
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
 #: task_manager/statuses/templates/statuses/status_delete.html:18
+#: task_manager/tasks/templates/tasks/task_delete.html:18
 #: task_manager/users/templates/users/delete.html:18
 msgid "No"
 msgstr "Нет"
@@ -103,7 +106,7 @@ msgstr "Дата создания"
 msgid "Delete"
 msgstr "Удалить"
 
-#: task_manager/statuses/views.py:17 task_manager/tasks/views.py:21
+#: task_manager/statuses/views.py:17 task_manager/tasks/views.py:28
 msgid "You are not logged in! Please log in"
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход"
 
@@ -160,6 +163,11 @@ msgstr "Метки"
 msgid "Create a task"
 msgstr "Создать задачу"
 
+#: task_manager/tasks/templates/tasks/task_delete.html:6
+#: task_manager/tasks/templates/tasks/task_delete.html:10
+msgid "Deleting a task"
+msgstr "Удаление задачи"
+
 #: task_manager/tasks/templates/tasks/task_update.html:6
 #: task_manager/tasks/templates/tasks/task_update.html:10
 msgid "Changing the task"
@@ -170,11 +178,19 @@ msgstr "Изменение задачи"
 msgid "Task List"
 msgstr "Список задач"
 
-#: task_manager/tasks/views.py:38
+#: task_manager/tasks/views.py:17
+msgid "Only the author of the task can delete it"
+msgstr "Задачу может удалить только ее автор"
+
+#: task_manager/tasks/views.py:45
 msgid "The task has been successfully created"
 msgstr "Задача успешно создана"
 
-#: task_manager/tasks/views.py:57
+#: task_manager/tasks/views.py:63
+msgid "The task was successfully deleted"
+msgstr "Задача успешно удалена"
+
+#: task_manager/tasks/views.py:73
 msgid "The task has been successfully changed"
 msgstr "Задача успешно изменена"
 
