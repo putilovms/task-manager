@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import AccessMixin
 from django.contrib import messages
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 from task_manager.tasks.models import Tasks
 
 
