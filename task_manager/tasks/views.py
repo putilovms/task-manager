@@ -2,11 +2,15 @@ from django.http import HttpResponse
 from django.views import View
 from django.contrib.auth.mixins import AccessMixin
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from task_manager.tasks.models import Tasks
+from .forms import TasksForm
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
+# UpdateView, DeleteView
 
 
 class LoginRequiredMsgMixin(AccessMixin):
@@ -26,9 +30,16 @@ class TasksListView(LoginRequiredMsgMixin, ListView):
     template_name = 'tasks/tasks_list.html'
 
 
-class TasksCreateView(LoginRequiredMsgMixin, DetailView):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse('Task create')
+class TasksCreateView(LoginRequiredMsgMixin, SuccessMessageMixin, CreateView):
+    login_url = reverse_lazy('login')
+    form_class = TasksForm
+    template_name = 'tasks/task_create.html'
+    success_url = reverse_lazy('tasks')
+    success_message = _("The task has been successfully created")
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class TasksDeleteView(View):

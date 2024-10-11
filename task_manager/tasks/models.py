@@ -5,12 +5,26 @@ from task_manager.statuses.models import Statuses
 
 
 class Tasks(models.Model):
-    name = models.CharField(max_length=30, unique=True)
-    description = models.CharField(max_length=255)
-    author = models.ForeignKey(User, on_delete=models.DO_NOTHING,
-                               related_name='author')
+    name = models.CharField(
+        max_length=30,
+        unique=True,
+    )
+    description = models.CharField(
+        max_length=255,
+        blank=True,
+    )
+    author = models.ForeignKey(
+        User,
+        on_delete=models.DO_NOTHING,
+        related_name='author',
+    )
     executor = models.ForeignKey(
-        User, on_delete=models.DO_NOTHING, related_name='executor', null=True)
+        User,
+        on_delete=models.DO_NOTHING,
+        related_name='executor',
+        null=True,
+        blank=True,
+    )
     status = models.ForeignKey(Statuses, on_delete=models.DO_NOTHING)
     created_at = models.DateTimeField(auto_now_add=True)
 
