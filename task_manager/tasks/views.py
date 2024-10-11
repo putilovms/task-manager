@@ -9,8 +9,8 @@ from django.utils.translation import gettext_lazy as _
 from task_manager.tasks.models import Tasks
 from .forms import TasksForm
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
-# UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView
+# , DeleteView
 
 
 class LoginRequiredMsgMixin(AccessMixin):
@@ -47,9 +47,14 @@ class TasksDeleteView(View):
         return HttpResponse('Task delete')
 
 
-class TasksUpdateView(View):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse('Task update')
+class TasksUpdateView(LoginRequiredMsgMixin, SuccessMessageMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    context_object_name = 'task'
+    model = Tasks
+    form_class = TasksForm
+    template_name = 'tasks/task_update.html'
+    success_url = reverse_lazy('tasks')
+    success_message = _("The task has been successfully changed")
 
 
 class TaskView(LoginRequiredMsgMixin, DetailView):

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 22:16+0400\n"
+"POT-Creation-Date: 2024-10-11 22:37+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,6 +67,7 @@ msgstr "Изменение статуса"
 #: task_manager/statuses/templates/statuses/status_update.html:15
 #: task_manager/statuses/templates/statuses/statuses.html:30
 #: task_manager/tasks/templates/tasks/task.html:45
+#: task_manager/tasks/templates/tasks/task_update.html:15
 #: task_manager/tasks/templates/tasks/tasks_list.html:38
 #: task_manager/users/templates/users/update.html:15
 #: task_manager/users/templates/users/users_list.html:30
@@ -159,6 +160,11 @@ msgstr "Метки"
 msgid "Create a task"
 msgstr "Создать задачу"
 
+#: task_manager/tasks/templates/tasks/task_update.html:6
+#: task_manager/tasks/templates/tasks/task_update.html:10
+msgid "Changing the task"
+msgstr "Изменение задачи"
+
 #: task_manager/tasks/templates/tasks/tasks_list.html:5
 #: task_manager/tasks/templates/tasks/tasks_list.html:9
 msgid "Task List"
@@ -167,6 +173,10 @@ msgstr "Список задач"
 #: task_manager/tasks/views.py:38
 msgid "The task has been successfully created"
 msgstr "Задача успешно создана"
+
+#: task_manager/tasks/views.py:57
+msgid "The task has been successfully changed"
+msgstr "Задача успешно изменена"
 
 #: task_manager/templates/base.html:7 task_manager/templates/base.html:23
 #: task_manager/templates/index.html:6 task_manager/templates/index.html:11
