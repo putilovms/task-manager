@@ -58,4 +58,4 @@ class LabelDeleteView(
     success_url = reverse_lazy('labels')
     success_message = _("The label was successfully deleted")
     protected_error_message = _(
-        "It is not possible to delete the status because it is in use")
+        "It is not possible to delete the label because it is being used")
