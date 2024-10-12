@@ -1,12 +1,13 @@
 from django.views.generic.list import ListView
 from task_manager.labels.models import Labels
 from django.contrib.auth.mixins import AccessMixin
-# from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
-# from django.views.generic.edit import DeleteView, CreateView, UpdateView
-# from .forms import StatusesForm
+from django.views.generic.edit import CreateView
+# UpdateView, DeleteView
+from .forms import LabelsForm
 
 
 class LoginRequiredMsgMixin(AccessMixin):
@@ -26,12 +27,12 @@ class LabelsListView(LoginRequiredMsgMixin, ListView):
     template_name = 'labels/labels.html'
 
 
-# class LabelCreateView(LoginRequiredMsgMixin, SuccessMessageMixin, CreateView):
-#     login_url = reverse_lazy('login')
-#     form_class = StatusesForm
-#     template_name = 'labels/label_create.html'
-#     success_url = reverse_lazy('statuses')
-#     success_message = _("The status has been successfully created")
+class LabelCreateView(LoginRequiredMsgMixin, SuccessMessageMixin, CreateView):
+    login_url = reverse_lazy('login')
+    form_class = LabelsForm
+    template_name = 'labels/label_create.html'
+    success_url = reverse_lazy('labels')
+    success_message = _("The label was created successfully")
 
 
 # class LabelUpdateView(LoginRequiredMsgMixin, SuccessMessageMixin, UpdateView):
