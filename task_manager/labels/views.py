@@ -1,8 +1,8 @@
-# from django.views.generic.list import ListView
-# from task_manager.statuses.models import Statuses
+from django.views.generic.list import ListView
+from task_manager.labels.models import Labels
 from django.contrib.auth.mixins import AccessMixin
 # from django.contrib.messages.views import SuccessMessageMixin
-# from django.urls import reverse_lazy
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 # from django.views.generic.edit import DeleteView, CreateView, UpdateView
@@ -20,10 +20,10 @@ class LoginRequiredMsgMixin(AccessMixin):
         return super().dispatch(request, *args, **kwargs)
 
 
-# class LabelsListView(LoginRequiredMsgMixin, ListView):
-#     login_url = reverse_lazy('login')
-#     model = Statuses
-#     template_name = 'labels/labels.html'
+class LabelsListView(LoginRequiredMsgMixin, ListView):
+    login_url = reverse_lazy('login')
+    model = Labels
+    template_name = 'labels/labels.html'
 
 
 # class LabelCreateView(LoginRequiredMsgMixin, SuccessMessageMixin, CreateView):

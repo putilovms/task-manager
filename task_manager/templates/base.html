@@ -48,7 +48,8 @@
                             href="{% url 'statuses' %}">{% trans "Statuses" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">{% trans "Labels" %}</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'labels' %}active{% endif %}"
+                            href="{% url 'labels' %}">{% trans "Labels" %}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'tasks' %}active{% endif %}"
