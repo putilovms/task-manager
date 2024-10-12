@@ -8,9 +8,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import AccessMixin
-import logging
-
-log = logging.getLogger(__name__)
+from task_manager.mixins import ProtectedMessageMixin
 
 
 class AuthorRequiredMixin(AccessMixin):
@@ -30,11 +28,18 @@ class UserUpdateView(AuthorRequiredMixin, SuccessMessageMixin, UpdateView):
     success_url = reverse_lazy('users')
 
 
-class UserDeleteView(AuthorRequiredMixin, SuccessMessageMixin, DeleteView):
+class UserDeleteView(
+    AuthorRequiredMixin,
+    ProtectedMessageMixin,
+    SuccessMessageMixin,
+    DeleteView
+):
     model = User
     template_name = 'users/delete.html'
     success_url = reverse_lazy('users')
     success_message = _("The user has been successfully deleted")
+    protected_error_message = _(
+        "It is not possible to delete a user because it is being used")
 
 
 class UsersListView(ListView):

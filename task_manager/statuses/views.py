@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from django.views.generic.edit import DeleteView, CreateView, UpdateView
 from .forms import StatusesForm
+from task_manager.mixins import ProtectedMessageMixin
 
 
 class LoginRequiredMsgMixin(AccessMixin):
@@ -44,10 +45,17 @@ class StatusUpdateView(LoginRequiredMsgMixin, SuccessMessageMixin, UpdateView):
     success_message = _("The status has been successfully changed")
 
 
-class StatusDeleteView(LoginRequiredMsgMixin, SuccessMessageMixin, DeleteView):
+class StatusDeleteView(
+    LoginRequiredMsgMixin,
+    ProtectedMessageMixin,
+    SuccessMessageMixin,
+    DeleteView
+):
     login_url = reverse_lazy('login')
     context_object_name = 'status'
     model = Statuses
     template_name = 'statuses/status_delete.html'
     success_url = reverse_lazy('statuses')
     success_message = _("The status has been successfully deleted")
+    protected_error_message = _(
+        "It is not possible to delete the status because it is in use")

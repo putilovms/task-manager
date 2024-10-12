@@ -4,9 +4,10 @@ from django.contrib.auth.mixins import AccessMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.contrib import messages
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .forms import LabelsForm
+from django.contrib import messages
+from task_manager.mixins import ProtectedMessageMixin
 
 
 class LoginRequiredMsgMixin(AccessMixin):
@@ -44,10 +45,17 @@ class LabelUpdateView(LoginRequiredMsgMixin, SuccessMessageMixin, UpdateView):
     success_message = _("The label has been successfully changed")
 
 
-class LabelDeleteView(LoginRequiredMsgMixin, SuccessMessageMixin, DeleteView):
+class LabelDeleteView(
+    LoginRequiredMsgMixin,
+    ProtectedMessageMixin,
+    SuccessMessageMixin,
+    DeleteView
+):
     login_url = reverse_lazy('login')
     context_object_name = 'label'
     model = Labels
     template_name = 'labels/label_delete.html'
     success_url = reverse_lazy('labels')
     success_message = _("The label was successfully deleted")
+    protected_error_message = _(
+        "It is not possible to delete the status because it is in use")
