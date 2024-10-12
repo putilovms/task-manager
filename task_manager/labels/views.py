@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from django.views.generic.edit import CreateView, DeleteView
-# UpdateView, 
+# UpdateView,
 from .forms import LabelsForm
 
 
