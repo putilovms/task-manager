@@ -18,13 +18,13 @@ class Tasks(models.Model):
     )
     author = models.ForeignKey(
         User,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.PROTECT,
         related_name='author',
         verbose_name=_('Author'),
     )
     executor = models.ForeignKey(
         User,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.PROTECT,
         related_name='executor',
         null=True,
         blank=True,
@@ -32,10 +32,14 @@ class Tasks(models.Model):
     )
     status = models.ForeignKey(
         Statuses,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.PROTECT,
         verbose_name=_('Status'),
     )
-    labels = models.ManyToManyField(Labels, through="LabelsTasks")
+    labels = models.ManyToManyField(
+        Labels,
+        through="LabelsTasks",
+        verbose_name=_('Labels'),
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -46,5 +50,5 @@ class Tasks(models.Model):
 
 
 class LabelsTasks(models.Model):
-    task = models.ForeignKey(Tasks, on_delete=models.DO_NOTHING)
-    label = models.ForeignKey(Labels, on_delete=models.DO_NOTHING)
+    task = models.ForeignKey(Tasks, on_delete=models.CASCADE)
+    label = models.ForeignKey(Labels, on_delete=models.PROTECT)
