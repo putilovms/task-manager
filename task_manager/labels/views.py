@@ -5,8 +5,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
-from django.views.generic.edit import CreateView, DeleteView
-# UpdateView,
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .forms import LabelsForm
 
 
@@ -35,14 +34,14 @@ class LabelCreateView(LoginRequiredMsgMixin, SuccessMessageMixin, CreateView):
     success_message = _("The label was created successfully")
 
 
-# class LabelUpdateView(LoginRequiredMsgMixin, SuccessMessageMixin, UpdateView):
-#     login_url = reverse_lazy('login')
-#     context_object_name = 'label'
-#     model = Statuses
-#     form_class = StatusesForm
-#     template_name = 'labels/label_update.html'
-#     success_url = reverse_lazy('labels')
-#     success_message = _("The status has been successfully changed")
+class LabelUpdateView(LoginRequiredMsgMixin, SuccessMessageMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    context_object_name = 'label'
+    model = Labels
+    form_class = LabelsForm
+    template_name = 'labels/label_update.html'
+    success_url = reverse_lazy('labels')
+    success_message = _("The label has been successfully changed")
 
 
 class LabelDeleteView(LoginRequiredMsgMixin, SuccessMessageMixin, DeleteView):

@@ -3,13 +3,13 @@
 {% load i18n %}
 {% load django_bootstrap5 %}
 
-{% block title %}{% trans "Status change" %}{% endblock %}
+{% block title %}{% trans "Label change" %}{% endblock %}
 
 {% block content %}
 
-<h1 class="my-4">{% trans "Status change" %}</h1>
+<h1 class="my-4">{% trans "Label change" %}</h1>
 
-<form method="post" action="{% url 'status_update' status.id %}">
+<form method="post" action="{% url 'label_update' label.id %}">
     {% csrf_token %}
     {% bootstrap_form form %}
     {% trans 'Edit' as submit_content %}
