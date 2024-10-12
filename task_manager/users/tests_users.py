@@ -72,7 +72,7 @@ class EditPageTest(TestCase):
 
 
 class DeletePageTest(TestCase):
-    fixtures = ["users.json"]
+    fixtures = ["users.json", "statuses.json", "tasks.json"]
 
     def setUp(self):
         self.client.login(username='tester1', password='123')
@@ -91,9 +91,18 @@ class DeletePageTest(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 302)
 
-    def test_delete(self):
+    def test_used_user_not_delete(self):
         url = reverse('delete', kwargs={'pk': 1})
         response = self.client.post(url, {}, follow=True)
         self.assertRedirects(response, reverse('users'))
+        status = User.objects.get(id=1)
+        self.assertEqual(str(status), 'tester1')
+
+    def test_delete(self):
+        self.client.logout()
+        self.client.login(username='tester2', password='123')
+        url = reverse('delete', kwargs={'pk': 2})
+        response = self.client.post(url, {}, follow=True)
+        self.assertRedirects(response, reverse('users'))
         with self.assertRaises(ObjectDoesNotExist):
-            User.objects.get(username='tester1')
+            User.objects.get(username='tester2')

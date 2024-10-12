@@ -1,0 +1,10 @@
+[
+{
+    "model": "tasks.labelstasks",
+    "pk": 1,
+    "fields": {
+        "task": 1,
+        "label": 1
+    }
+}
+]
