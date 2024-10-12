@@ -22,28 +22,29 @@ class StatusesPageTest(TestCase):
 class CreateStatusPageTest(TestCase):
     fixtures = ["users.json"]
 
-    def test_view_url(self):
+    def setUp(self):
         self.client.login(username='tester1', password='123')
+
+    def test_view_url(self):
         response = self.client.get('/statuses/create/')
         self.assertEqual(response.status_code, 200)
         response = self.client.get(reverse('status_create'))
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_no_auth(self):
+        self.client.logout()
         response = self.client.get(reverse('status_create'))
         self.assertRedirects(response, reverse('login'))
 
     def test_create_status(self):
-        self.client.login(username='tester1', password='123')
         credentials = {
             "name": "status1",
         }
         response = self.client.post(
             reverse('status_create'), credentials, follow=True)
         self.assertRedirects(response, reverse('statuses'))
-        user = Statuses.objects.get(name='status1')
-        self.assertEqual(str(user), 'status1')
-        # Добавить проверку на уникальность
+        status = Statuses.objects.get(name='status1')
+        self.assertEqual(str(status), 'status1')
 
 
 class EditStatusPageTest(TestCase):
