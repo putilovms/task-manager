@@ -8,7 +8,6 @@ from task_manager.tasks.models import Tasks
 from .forms import TasksForm
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
 from .filters import MyFilter
 from django_filters.views import FilterView
 

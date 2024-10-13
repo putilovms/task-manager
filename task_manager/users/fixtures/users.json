@@ -33,5 +33,22 @@
         "groups": [],
         "user_permissions": []
     }
+},{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$Apf45zqzj7niRMcNwAJHu5$KnA5KMpG4DSf3DcqAVB7BeJztut3qRvIAT/UJdj7ZZo=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "tester3",
+        "first_name": "Пётр",
+        "last_name": "Петров",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-10-13T15:19:38.774Z",
+        "groups": [],
+        "user_permissions": []
+    }
 }
 ]

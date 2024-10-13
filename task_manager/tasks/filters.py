@@ -11,7 +11,7 @@ log = logging.getLogger(__name__)
 
 
 class MyFilter(django_filters.FilterSet):
-    labels = django_filters.ModelChoiceFilter(
+    label = django_filters.ModelChoiceFilter(
         field_name='labels',
         queryset=Labels.objects.all(),
     )

@@ -14,5 +14,13 @@
         "name": "status2",
         "created_at": "2024-10-10T19:25:48.679Z"
     }
+},
+{
+    "model": "statuses.statuses",
+    "pk": 3,
+    "fields": {
+        "name": "status3",
+        "created_at": "2024-10-10T19:25:48.679Z"
+    }
 }
 ]

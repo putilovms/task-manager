@@ -3,6 +3,10 @@ from django.urls import reverse
 from task_manager.tasks.models import Tasks
 from django.core.exceptions import ObjectDoesNotExist
 
+import logging
+
+log = logging.getLogger(__name__)
+
 
 class TasksPageTest(TestCase):
     fixtures = ["users.json"]
@@ -32,6 +36,8 @@ class TaskPageTest(TestCase):
     def test_view_url_no_auth(self):
         response = self.client.get(reverse('task', kwargs={'pk': 1}))
         self.assertRedirects(response, reverse('login'))
+
+# добавить метки
 
 
 class CreateTaskPageTest(TestCase):
@@ -63,6 +69,8 @@ class CreateTaskPageTest(TestCase):
         self.assertEqual(str(task), 'task1')
         self.assertEqual(task.author.id, 1)
 
+# добавить метки
+
 
 class EditTaskPageTest(TestCase):
     fixtures = ["users.json", "statuses.json", "tasks.json"]
@@ -85,7 +93,7 @@ class EditTaskPageTest(TestCase):
 
     def test_task_update(self):
         credentials = {
-            "name": "task3",
+            "name": "task4",
             "description": "",
             "executor": 1,
             "status": 1,
@@ -93,13 +101,13 @@ class EditTaskPageTest(TestCase):
         url = reverse('task_update', kwargs={'pk': 1})
         response = self.client.post(url, credentials, follow=True)
         self.assertRedirects(response, reverse('tasks'))
-        status = Tasks.objects.get(id=1)
-        self.assertEqual(str(status), 'task3')
+        task = Tasks.objects.get(id=1)
+        self.assertEqual(str(task), 'task4')
         with self.assertRaises(ObjectDoesNotExist):
             Tasks.objects.get(name='task1')
 
 
-class DeleteStatusPageTest(TestCase):
+class DeleteTaskPageTest(TestCase):
     fixtures = ["users.json", "statuses.json", "tasks.json"]
 
     def setUp(self):
@@ -133,3 +141,58 @@ class DeleteStatusPageTest(TestCase):
         self.assertRedirects(response, reverse('tasks'))
         task = Tasks.objects.get(name='task1')
         self.assertEqual(str(task), 'task1')
+
+
+class TaskFilteTest(TestCase):
+    fixtures = [
+        "users.json",
+        "labels.json",
+        "tasks.json",
+        "statuses.json",
+        "labelstasks.json"
+    ]
+
+    def setUp(self):
+        self.client.login(username='tester1', password='123')
+
+    def test_without_filter(self):
+        response = self.client.get(reverse('tasks'))
+        self.assertContains(response, "task1", status_code=200)
+        self.assertContains(response, "task2", status_code=200)
+        self.assertContains(response, "task3", status_code=200)
+
+    def test_status_filter(self):
+        args = {
+            'status': '2'
+        }
+        response = self.client.get(reverse('tasks'), args)
+        self.assertNotContains(response, "task1", status_code=200)
+        self.assertNotContains(response, "task2", status_code=200)
+        self.assertContains(response, "task3", status_code=200)
+
+    def test_executor_filter(self):
+        args = {
+            'executor': '1'
+        }
+        response = self.client.get(reverse('tasks'), args)
+        self.assertContains(response, "task1", status_code=200)
+        self.assertContains(response, "task2", status_code=200)
+        self.assertNotContains(response, "task3", status_code=200)
+
+    def test_label_filter(self):
+        args = {
+            'label': '1'
+        }
+        response = self.client.get(reverse('tasks'), args)
+        self.assertContains(response, "task1", status_code=200)
+        self.assertNotContains(response, "task2", status_code=200)
+        self.assertNotContains(response, "task3", status_code=200)
+
+    def test_self_tasks_filter(self):
+        args = {
+            'self_tasks': 'on'
+        }
+        response = self.client.get(reverse('tasks'), args)
+        self.assertContains(response, "task1", status_code=200)
+        self.assertContains(response, "task2", status_code=200)
+        self.assertNotContains(response, "task3", status_code=200)

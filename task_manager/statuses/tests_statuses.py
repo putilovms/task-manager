@@ -68,13 +68,13 @@ class EditStatusPageTest(TestCase):
 
     def test_status_update(self):
         credentials = {
-            "name": "status3"
+            "name": "status4"
         }
         url = reverse('status_update', kwargs={'pk': 1})
         response = self.client.post(url, credentials, follow=True)
         self.assertRedirects(response, reverse('statuses'))
         status = Statuses.objects.get(id=1)
-        self.assertEqual(str(status), 'status3')
+        self.assertEqual(str(status), 'status4')
         with self.assertRaises(ObjectDoesNotExist):
             Statuses.objects.get(name='status1')
 
@@ -106,8 +106,8 @@ class DeleteStatusPageTest(TestCase):
         self.assertEqual(str(status), 'status1')
 
     def test_status_delete(self):
-        url = reverse('status_delete', kwargs={'pk': 2})
+        url = reverse('status_delete', kwargs={'pk': 3})
         response = self.client.post(url, {}, follow=True)
         self.assertRedirects(response, reverse('statuses'))
         with self.assertRaises(ObjectDoesNotExist):
-            Statuses.objects.get(id=2)
+            Statuses.objects.get(id=3)
