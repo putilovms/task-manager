@@ -22,7 +22,7 @@ class AuthorRequiredMixin(AccessMixin):
 
 class UserUpdateView(AuthorRequiredMixin, SuccessMessageMixin, UpdateView):
     model = User
-    template_name = 'users/update.html'
+    template_name = 'users/user_update.html'
     form_class = UserEditForm
     success_message = _("The user has been successfully changed")
     success_url = reverse_lazy('users')
@@ -35,7 +35,7 @@ class UserDeleteView(
     DeleteView
 ):
     model = User
-    template_name = 'users/delete.html'
+    template_name = 'users/user_delete.html'
     success_url = reverse_lazy('users')
     success_message = _("The user has been successfully deleted")
     protected_error_message = _(
@@ -44,11 +44,11 @@ class UserDeleteView(
 
 class UsersListView(ListView):
     model = User
-    template_name = 'users/users_list.html'
+    template_name = 'users/users.html'
 
 
 class RegistrationView(SuccessMessageMixin, CreateView):
     form_class = RegisterForm
-    template_name = 'users/registration.html'
+    template_name = 'users/user_create.html'
     success_url = reverse_lazy('login')
     success_message = _("The user has been successfully registered")

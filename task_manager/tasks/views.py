@@ -1,6 +1,3 @@
-from django.shortcuts import redirect
-from django.contrib.auth.mixins import AccessMixin
-from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -10,26 +7,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .filters import MyFilter
 from django_filters.views import FilterView
-
-
-class AuthorRequiredMixin(AccessMixin):
-    def dispatch(self, request, *args, **kwargs):
-        if self.get_object().author.id != request.user.id:
-            text_message = _("Only the author of the task can delete it")
-            messages.error(request, text_message)
-            return redirect('tasks')
-        return super().dispatch(request, *args, **kwargs)
-
-
-class LoginRequiredMsgMixin(AccessMixin):
-    redirect_field_name = None
-
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            text_message = _("You are not logged in! Please log in")
-            messages.error(request, text_message)
-            return self.handle_no_permission()
-        return super().dispatch(request, *args, **kwargs)
+from task_manager.mixins import LoginRequiredMsgMixin, AuthorRequiredMixin
 
 
 class TasksListView(LoginRequiredMsgMixin, FilterView):

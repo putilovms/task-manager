@@ -67,8 +67,8 @@
                             href="{% url 'login' %}">{% trans "Log in" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.resolver_match.url_name == 'registration' %}active{% endif %}"
-                            href="{% url 'registration' %}">{% trans "Sign up" %}</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'user_create' %}active{% endif %}"
+                            href="{% url 'user_create' %}">{% trans "Sign up" %}</a>
                     </li>
                     {% endif %}
                 </ul>

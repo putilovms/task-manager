@@ -16,7 +16,7 @@ class RegistrationPageTest(TestCase):
     def test_view_url(self):
         response = self.client.get('/users/create/')
         self.assertEqual(response.status_code, 200)
-        response = self.client.get(reverse('registration'))
+        response = self.client.get(reverse('user_create'))
         self.assertEqual(response.status_code, 200)
 
     def test_create_user(self):
@@ -28,7 +28,7 @@ class RegistrationPageTest(TestCase):
             'password2': '123',
         }
         response = self.client.post(
-            reverse('registration'), credentials, follow=True)
+            reverse('user_create'), credentials, follow=True)
         self.assertRedirects(response, reverse('login'))
         user = User.objects.get(username='tester3')
         self.assertEqual(str(user), 'tester3')
@@ -43,14 +43,14 @@ class EditPageTest(TestCase):
     def test_view_url(self):
         response = self.client.get('/users/1/update/')
         self.assertEqual(response.status_code, 200)
-        url = reverse('update', kwargs={'pk': 1})
+        url = reverse('user_update', kwargs={'pk': 1})
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_no_perm(self):
         response = self.client.get('/users/2/update/')
         self.assertEqual(response.status_code, 302)
-        url = reverse('update', kwargs={'pk': 2})
+        url = reverse('user_update', kwargs={'pk': 2})
         response = self.client.get(url)
         self.assertEqual(response.status_code, 302)
 
@@ -62,7 +62,7 @@ class EditPageTest(TestCase):
             'password1': '123',
             'password2': '123',
         }
-        url = reverse('update', kwargs={'pk': 1})
+        url = reverse('user_update', kwargs={'pk': 1})
         response = self.client.post(url, credentials, follow=True)
         self.assertRedirects(response, reverse('users'))
         user = User.objects.get(id=1)
@@ -80,19 +80,17 @@ class DeletePageTest(TestCase):
     def test_view_url(self):
         response = self.client.get('/users/1/delete/')
         self.assertEqual(response.status_code, 200)
-        url = reverse('delete', kwargs={'pk': 1})
+        url = reverse('user_delete', kwargs={'pk': 1})
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_no_perm(self):
-        response = self.client.get('/users/2/delete/')
-        self.assertEqual(response.status_code, 302)
-        url = reverse('delete', kwargs={'pk': 2})
+        url = reverse('user_delete', kwargs={'pk': 2})
         response = self.client.get(url)
         self.assertEqual(response.status_code, 302)
 
     def test_used_user_not_delete(self):
-        url = reverse('delete', kwargs={'pk': 1})
+        url = reverse('user_delete', kwargs={'pk': 1})
         response = self.client.post(url, {}, follow=True)
         self.assertRedirects(response, reverse('users'))
         status = User.objects.get(id=1)
@@ -101,7 +99,7 @@ class DeletePageTest(TestCase):
     def test_delete(self):
         self.client.logout()
         self.client.login(username='tester3', password='123')
-        url = reverse('delete', kwargs={'pk': 3})
+        url = reverse('user_delete', kwargs={'pk': 3})
         response = self.client.post(url, {}, follow=True)
         self.assertRedirects(response, reverse('users'))
         with self.assertRaises(ObjectDoesNotExist):

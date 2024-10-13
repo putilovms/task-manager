@@ -18,7 +18,7 @@
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
                 <a class="btn btn-primary btn-lg px-4 me-sm-3
                 {% if user.is_authenticated %}disabled{% endif %}
-                " href="{% url 'registration' %}" role="button">{% trans "Get Started" %}</a>
+                " href="{% url 'user_create' %}" role="button">{% trans "Get Started" %}</a>
                 <a class="btn btn-outline-secondary btn-lg px-4" href="{% url 'users' %}" role="button">{% trans "Users" %}</a>
             </div>
         </div>

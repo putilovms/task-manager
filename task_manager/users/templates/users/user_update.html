@@ -3,16 +3,16 @@
 {% load i18n %}
 {% load django_bootstrap5 %}
 
-{% block title %}{% trans "Registration" %}{% endblock %}
+{% block title %}{% trans "User update" %}{% endblock %}
 
 {% block content %}
 
-<h1 class="my-4">{% trans "Registration" %}</h1>
+<h1 class="my-4">{% trans "User update" %}</h1>
 
-<form method="post" action="{% url 'registration' %}">
+<form method="post" action="{% url 'user_update' user.id %}">
     {% csrf_token %}
     {% bootstrap_form form %}
-    {% trans 'Register' as submit_content %}
+    {% trans 'Edit' as submit_content %}
     {% bootstrap_button button_type="submit" content=submit_content %}
 </form>
 
