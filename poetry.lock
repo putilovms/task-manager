@@ -70,6 +70,20 @@ Django = ">=4.2"
 jinja = ["Jinja2 (>=3.0,<4)"]
 
 [[package]]
+name = "django-currentuser"
+version = "0.8.0"
+description = "Conveniently store reference to request user on thread/db level."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django_currentuser-0.8.0-py2.py3-none-any.whl", hash = "sha256:b2460971114eaf4829e07eb81d1e92972554308e16e372e892ba61fc47cac77a"},
+    {file = "django_currentuser-0.8.0.tar.gz", hash = "sha256:911e695955d8875da33a910e637d2c76968287cba896c99888fd5e3fa6fad2af"},
+]
+
+[package.dependencies]
+Django = ">=4.2,<5.2"
+
+[[package]]
 name = "django-filter"
 version = "24.3"
 description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
@@ -313,4 +327,4 @@ brotli = ["brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "0829a9666f6178c52c5775bc1537fd48ae07f9559238f7025221b539116491b8"
+content-hash = "9c3ddac6d5717ea91a701e25654a6acd490efc23d59860a985465ae61f3db082"
