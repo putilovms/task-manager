@@ -54,3 +54,6 @@ class Tasks(models.Model):
 class LabelsTasks(models.Model):
     task = models.ForeignKey(Tasks, on_delete=models.CASCADE)
     label = models.ForeignKey(Labels, on_delete=models.PROTECT)
+
+    class Meta:
+        unique_together = ('task', 'label',)
