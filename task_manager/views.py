@@ -30,7 +30,7 @@ class SetLang(View):
 
 def login_message(sender, user, request, **kwargs):
     text_message = _("You have successfully logged in to the site")
-    messages.info(request, text_message, fail_silently=True)
+    messages.success(request, text_message, fail_silently=True)
 
 
 def logout_message(sender, user, request, **kwargs):

@@ -380,8 +380,8 @@ msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/views.py:32
 msgid "You have successfully logged in to the site"
-msgstr "Вы успешно вошли на сайт"
+msgstr "Вы залогинены"
 
 #: task_manager/views.py:37
 msgid "You have successfully logged out of your account"
-msgstr "Вы успешно вышли из своей учётной записи"
+msgstr "Вы разлогинены"
