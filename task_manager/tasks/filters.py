@@ -5,10 +5,6 @@ from django.forms import CheckboxInput
 from django.utils.translation import gettext_lazy as _
 from django_currentuser.middleware import get_current_user
 
-import logging
-
-log = logging.getLogger(__name__)
-
 
 class MyFilter(django_filters.FilterSet):
     label = django_filters.ModelChoiceFilter(

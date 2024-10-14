@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, BaseUserCreationForm
-# from django.contrib.auth.forms import UserChangeForm
 
 
 class RegisterForm(UserCreationForm):

@@ -3,10 +3,6 @@ from django.urls import reverse
 from task_manager.tasks.models import Tasks
 from django.core.exceptions import ObjectDoesNotExist
 
-import logging
-
-log = logging.getLogger(__name__)
-
 
 class TasksPageTest(TestCase):
     fixtures = ["users.json"]
@@ -37,8 +33,6 @@ class TaskPageTest(TestCase):
         response = self.client.get(reverse('task', kwargs={'pk': 1}))
         self.assertRedirects(response, reverse('login'))
 
-# добавить метки
-
 
 class CreateTaskPageTest(TestCase):
     fixtures = ["users.json", "statuses.json"]
@@ -68,8 +62,6 @@ class CreateTaskPageTest(TestCase):
         task = Tasks.objects.get(name='task1')
         self.assertEqual(str(task), 'task1')
         self.assertEqual(task.author.id, 1)
-
-# добавить метки
 
 
 class EditTaskPageTest(TestCase):

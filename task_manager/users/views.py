@@ -1,28 +1,16 @@
-from django.shortcuts import redirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import DeleteView, CreateView, UpdateView
 from .forms import RegisterForm, UserEditForm
-from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth.mixins import AccessMixin
-from task_manager.mixins import ProtectedMessageMixin
+from task_manager.mixins import ProtectedMessageMixin, UserCreatorRequiredMixin
 
 User.__str__ = lambda user_instance: user_instance.get_full_name()
 
 
-class AuthorRequiredMixin(AccessMixin):
-    def dispatch(self, request, *args, **kwargs):
-        if self.get_object().id != request.user.id:
-            text_message = _("You don't have the rights to change another user")
-            messages.error(request, text_message)
-            return redirect('users')
-        return super().dispatch(request, *args, **kwargs)
-
-
-class UserUpdateView(AuthorRequiredMixin, SuccessMessageMixin, UpdateView):
+class UserUpdateView(UserCreatorRequiredMixin, SuccessMessageMixin, UpdateView):
     model = User
     template_name = 'users/user_update.html'
     form_class = UserEditForm
@@ -31,7 +19,7 @@ class UserUpdateView(AuthorRequiredMixin, SuccessMessageMixin, UpdateView):
 
 
 class UserDeleteView(
-    AuthorRequiredMixin,
+    UserCreatorRequiredMixin,
     ProtectedMessageMixin,
     SuccessMessageMixin,
     DeleteView

@@ -34,9 +34,20 @@ class LoginRequiredMsgMixin(AccessMixin):
 
 
 class AuthorRequiredMixin(AccessMixin):
+    not_author_message = _("Only the author of the task can delete it")
+
     def dispatch(self, request, *args, **kwargs):
         if self.get_object().author.id != request.user.id:
-            text_message = _("Only the author of the task can delete it")
-            messages.error(request, text_message)
+            messages.error(request, self.not_author_message)
             return redirect('tasks')
+        return super().dispatch(request, *args, **kwargs)
+
+
+class UserCreatorRequiredMixin(AccessMixin):
+    not_creator_message = _("You don't have the rights to change another user")
+
+    def dispatch(self, request, *args, **kwargs):
+        if self.get_object().id != request.user.id:
+            messages.error(request, self.not_creator_message)
+            return redirect('users')
         return super().dispatch(request, *args, **kwargs)
