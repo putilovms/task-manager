@@ -10,6 +10,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import AccessMixin
 from task_manager.mixins import ProtectedMessageMixin
 
+User.__str__ = lambda user_instance: user_instance.get_full_name()
+
 
 class AuthorRequiredMixin(AccessMixin):
     def dispatch(self, request, *args, **kwargs):

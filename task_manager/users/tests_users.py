@@ -31,7 +31,7 @@ class RegistrationPageTest(TestCase):
             reverse('user_create'), credentials, follow=True)
         self.assertRedirects(response, reverse('login'))
         user = User.objects.get(username='tester3')
-        self.assertEqual(str(user), 'tester3')
+        self.assertEqual(user.username, 'tester3')
 
 
 class EditPageTest(TestCase):
@@ -66,7 +66,7 @@ class EditPageTest(TestCase):
         response = self.client.post(url, credentials, follow=True)
         self.assertRedirects(response, reverse('users'))
         user = User.objects.get(id=1)
-        self.assertEqual(str(user), 'tester4')
+        self.assertEqual(user.username, 'tester4')
         with self.assertRaises(ObjectDoesNotExist):
             User.objects.get(username='tester1')
 
@@ -93,8 +93,8 @@ class DeletePageTest(TestCase):
         url = reverse('user_delete', kwargs={'pk': 1})
         response = self.client.post(url, {}, follow=True)
         self.assertRedirects(response, reverse('users'))
-        status = User.objects.get(id=1)
-        self.assertEqual(str(status), 'tester1')
+        user = User.objects.get(id=1)
+        self.assertEqual(user.username, 'tester1')
 
     def test_delete(self):
         self.client.logout()

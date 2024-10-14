@@ -203,4 +203,5 @@ ROLLBAR = {
     'environment': 'development' if DEBUG else 'production',
     'code_version': '0.1.0',
     'root': BASE_DIR,
+    'enabled': not DEBUG,
 }
