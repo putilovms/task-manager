@@ -14,6 +14,7 @@ class MyFilter(django_filters.FilterSet):
     label = django_filters.ModelChoiceFilter(
         field_name='labels',
         queryset=Labels.objects.all(),
+        label=_('Label'),
     )
     self_tasks = django_filters.BooleanFilter(
         field_name='author',
