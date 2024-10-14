@@ -360,7 +360,7 @@ msgstr "Полное имя"
 
 #: task_manager/users/views.py:19
 msgid "You don't have the rights to change another user"
-msgstr "У вас нет прав на изменение другого пользователя"
+msgstr "У вас нет прав на изменение другого пользователя."
 
 #: task_manager/users/views.py:29
 msgid "The user has been successfully changed"
