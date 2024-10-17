@@ -185,7 +185,7 @@ LOGGING = {
     },
     "loggers": {},
     "root": {
-        "level": os.getenv("LOG_LEVEL", "WARNING"),
+        "level": 'DEBUG' if DEBUG else 'WARNING',
         "handlers": [
             "logfile",
             "stdout"
