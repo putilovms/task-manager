@@ -1,7 +1,5 @@
 from django.views import View
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from django.utils import translation
 from django.contrib import messages
 from django.contrib.auth.signals import user_logged_in, user_logged_out
 from django.utils.translation import gettext as _
