@@ -18,8 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from task_manager import views
 
-# handler404 = 'task_manager.views.page404'
-# handler500 = 'task_manager.views.page500'
+
+handler404 = 'task_manager.views.page404'
+handler500 = 'task_manager.views.page500'
 
 urlpatterns = [
     path('', views.HomePageView.as_view(), name="home"),

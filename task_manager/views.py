@@ -38,12 +38,12 @@ def logout_message(sender, user, request, **kwargs):
     messages.info(request, text_message, fail_silently=True)
 
 
-# def page404(request, exception):
-#     return render(request, '/404.html', status=404)
+def page404(request, exception, template_name="404.html"):
+    return render(request, template_name, context={}, status=404)
 
 
-# def page500(request, exception):
-#     return render(request, '/500.html', status=500)
+def page500(request, template_name="500.html"):
+    return render(request, template_name, context={}, status=500)
 
 
 user_logged_in.connect(login_message)
