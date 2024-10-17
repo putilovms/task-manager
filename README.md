@@ -25,7 +25,6 @@ User registration and authentication has been implemented. It is possible to cre
     * `SECRET_KEY` - the secret key
     * `DATABASE_URL` - access to the PostgreSQL database
     * `DEBUG` - activating the debugging mode
-    * `LOG_LEVEL` - logging depth level
     * `ROLLBAR_ACCESS_TOKEN` - access token to the Rollbar service
 4. Create migrations necessary for the service to work: `>> make makemigrations`
 5. Build the project using the command: `>> make setup`

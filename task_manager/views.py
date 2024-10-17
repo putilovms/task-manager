@@ -15,19 +15,6 @@ class HomePageView(View):
         return render(request, 'index.html', context={})
 
 
-class SetLang(View):
-    langs = {
-        'en': 'en-us',
-        'ru': 'ru-RU',
-    }
-
-    def get(self, request, *args, **kwargs):
-        lang = self.langs.get(kwargs['lang'], self.langs['ru'])
-        translation.activate(lang)
-        log.debug(f'Язык переключён на - {lang}')
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-
-
 def login_message(sender, user, request, **kwargs):
     text_message = _("You have successfully logged in to the site")
     messages.success(request, text_message, fail_silently=True)

@@ -12,14 +12,16 @@
         <div class="col-lg-8 mx-auto">
             <p class="lead mb-4">
                 {% trans "A Task Manager is a task management system." %}
-                {% trans "It allows you to set tasks, assign performers and change their statuses." %} 
+                {% trans "It allows you to set tasks, assign performers and change their statuses." %}
                 {% trans "The project also implements user registration and authentication." %}
             </p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                <a class="btn btn-primary btn-lg px-4 me-sm-3
-                {% if user.is_authenticated %}disabled{% endif %}
-                " href="{% url 'user_create' %}" role="button">{% trans "Get Started" %}</a>
-                <a class="btn btn-outline-secondary btn-lg px-4" href="{% url 'users' %}" role="button">{% trans "Users" %}</a>
+                {% if not user.is_authenticated %}
+                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'user_create' %}" role="button">
+                    {% trans "Get Started" %}</a>
+                {% endif %}
+                <a class="btn btn-outline-secondary btn-lg px-4" href="{% url 'users' %}" role="button">
+                    {% trans "Users"%}</a>
             </div>
         </div>
         <div class="overflow-hidden border-bottom" style="max-height: 30vh;">
