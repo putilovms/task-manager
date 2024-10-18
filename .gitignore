@@ -6,3 +6,4 @@ __pycache__
 var/
 *.sqlite3
 .coverage
+coverage.xml

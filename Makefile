@@ -22,6 +22,7 @@ test:
 .PHONY: test-coverage
 test-coverage:
 	poetry run coverage run --source='.' manage.py test
+	poetry run coverage xml
 
 .PHONY: makemigrations
 makemigrations:
