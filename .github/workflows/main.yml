@@ -42,7 +42,12 @@ jobs:
         uses: paambaati/codeclimate-action@v5.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DEBUG: False
         with:
-          coverageCommand: make test-coverage
+          coverageCommand: |
+            make setup
+            make test-coverage
           debug: true
   
