@@ -19,6 +19,10 @@ lint:
 test:
 	poetry run python manage.py test
 
+.PHONY: test-coverage
+test-coverage:
+	poetry run coverage run --source='.' manage.py test
+
 .PHONY: makemigrations
 makemigrations:
 	poetry run python manage.py makemigrations

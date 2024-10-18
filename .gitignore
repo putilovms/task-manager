@@ -5,3 +5,4 @@ __pycache__
 *.log
 var/
 *.sqlite3
+.coverage
