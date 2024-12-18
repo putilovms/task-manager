@@ -2,9 +2,23 @@
 install:
 	poetry install
 
+.PHONY: static
+static:
+	poetry run python manage.py collectstatic --no-input
+
+.PHONY: migrate
+migrate:
+	poetry run python manage.py migrate
+
+.PHONY: setup
+setup:
+	poetry install
+	poetry run python manage.py collectstatic --no-input
+	poetry run python manage.py migrate
+
 .PHONY: dev
 dev:
-	poetry run python manage.py runserver
+	poetry run python manage.py runserver 0.0.0.0:8000
 
 PORT ?= 8000
 .PHONY: start
@@ -27,12 +41,6 @@ test-coverage:
 .PHONY: makemigrations
 makemigrations:
 	poetry run python manage.py makemigrations
-
-.PHONY: setup
-setup:
-	poetry install
-	poetry run python manage.py collectstatic --no-input
-	poetry run python manage.py migrate
 
 .PHONY: makemessages
 makemessages:

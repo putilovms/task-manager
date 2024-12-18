@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+  task_manager:
+    build: ../../.
+    restart: always
+    ports:
+      - '8080:8000'
+    depends_on:
+      - postgres
+    command: bash -c "make migrate && make start"
+    env_file:
+      - ./task_manager.env
+
+  postgres:
+    image: postgres:16.6
+    restart: always
+    env_file:
+      - ./postgres.env
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
