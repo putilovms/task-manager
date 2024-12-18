@@ -1,5 +1,5 @@
-from task_manager.tasks.models import Tasks
 from django.forms import ModelForm, Textarea
+from task_manager.tasks.models import Tasks
 
 
 class TasksForm(ModelForm):

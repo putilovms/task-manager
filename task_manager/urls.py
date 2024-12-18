@@ -15,9 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
 from task_manager import views
-
 
 handler404 = 'task_manager.views.page404'
 handler500 = 'task_manager.views.page500'

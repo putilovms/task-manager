@@ -1,7 +1,7 @@
-from django.test import TestCase
-from task_manager.statuses.models import Statuses
-from django.urls import reverse
 from django.core.exceptions import ObjectDoesNotExist
+from django.test import TestCase
+from django.urls import reverse
+from task_manager.statuses.models import Statuses
 
 
 class StatusesPageTest(TestCase):

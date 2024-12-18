@@ -1,7 +1,7 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase
 from django.urls import reverse
 from task_manager.tasks.models import Tasks
-from django.core.exceptions import ObjectDoesNotExist
 
 
 class TasksPageTest(TestCase):

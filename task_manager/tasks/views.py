@@ -1,13 +1,14 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from task_manager.tasks.models import Tasks
-from .forms import TasksForm
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .filters import MyFilter
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django_filters.views import FilterView
-from task_manager.mixins import LoginRequiredMsgMixin, AuthorRequiredMixin
+from task_manager.mixins import AuthorRequiredMixin, LoginRequiredMsgMixin
+from task_manager.tasks.models import Tasks
+
+from .filters import MyFilter
+from .forms import TasksForm
 
 
 class TasksListView(LoginRequiredMsgMixin, FilterView):

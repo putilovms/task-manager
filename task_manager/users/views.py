@@ -1,11 +1,12 @@
-from django.views.generic.list import ListView
-from django.views.generic.edit import DeleteView, CreateView, UpdateView
-from .forms import RegisterForm, UserEditForm
-from django.utils.translation import gettext as _
 from django.contrib.auth.models import User
-from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
+from django.utils.translation import gettext as _
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.views.generic.list import ListView
 from task_manager.mixins import ProtectedMessageMixin, UserCreatorRequiredMixin
+
+from .forms import RegisterForm, UserEditForm
 
 User.__str__ = lambda user_instance: user_instance.get_full_name()
 

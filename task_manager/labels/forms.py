@@ -1,5 +1,5 @@
-from task_manager.labels.models import Labels
 from django.forms import ModelForm
+from task_manager.labels.models import Labels
 
 
 class LabelsForm(ModelForm):

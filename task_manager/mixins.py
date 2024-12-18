@@ -1,9 +1,9 @@
 from django.contrib import messages
-from django.http import HttpResponseRedirect
-from django.db.models import ProtectedError
 from django.contrib.auth.mixins import AccessMixin
-from django.utils.translation import gettext_lazy as _
+from django.db.models import ProtectedError
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
+from django.utils.translation import gettext_lazy as _
 
 
 class ProtectedMessageMixin:

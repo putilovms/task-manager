@@ -1,7 +1,7 @@
-from django.test import TestCase
-from task_manager.labels.models import Labels
-from django.urls import reverse
 from django.core.exceptions import ObjectDoesNotExist
+from django.test import TestCase
+from django.urls import reverse
+from task_manager.labels.models import Labels
 
 
 class LabelsPageTest(TestCase):
