@@ -30,3 +30,30 @@ User registration and authentication has been implemented. It is possible to cre
 4. Create migrations necessary for the service to work: `>> make makemigrations`
 5. Build the project using the command: `>> make setup`
 6. Starting the server: `>> make start`
+
+## Docker Compose
+
+1. To run in product mode:
+   1. Create files for environment variables with the following contents:
+      * `/compose/product/postgres.env`
+         * `POSTGRES_DB` - database name
+         * `POSTGRES_USER` - username
+         * `POSTGRES_PASSWORD` - password
+      * `/compose/product/task_manager.env`
+         * `SECRET_KEY` - the secret key
+         * `DATABASE_URL` - access to the PostgreSQL database
+         * `DEBUG` - activating the debugging mode
+         * `ROLLBAR_ACCESS_TOKEN` - access token to the Rollbar service
+   2. Go to the directory with compose files `>> cd compose/product/`
+   3. The command to launch containers `>> docker-compose up --build`
+2. To run in development mode:
+   1. Create files for environment variables with the following contents:
+      * `/compose/dev/postgres.env`
+      * `/compose/dev/task_manager.env`
+   2. Go to the directory with compose files `>> cd compose/dev/`
+   3. The command to launch containers `>> docker-compose up --build`
+3. To run in test mode:
+   1. Create file for environment variables with the following contents:
+      * `/compose/test/task_manager.env`
+   2. Go to the directory with compose files `>> cd compose/test/`
+   3. The command to launch containers `>> docker-compose up --build`
